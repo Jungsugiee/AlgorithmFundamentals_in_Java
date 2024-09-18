@@ -1,39 +1,44 @@
 /**
 This is Algorithm 1.3 Exchange Sort
-Needs Work
+This class will perform exchange sort by comparing the number to its next until the array has been sorted into order.
 
 Author: James Lee
 Source Code in ReadMe File 
 */
 
+import java.util.Arrays;
+
+
 public class exchangeSort{
     
-     // This method will return the sum of the given array elements
-     public static int exchange(int n, int[] S) {
-            
-            // for i that is smaller than the length of the array add the current index element to the result counter
-            for (int i = 1; i < n; i++){
-                for (int j = 1; j < i+1 && j <n+1; j++) {
-                    if (S[j] < S[i]) {
-                        S[i] = S[j];
-                        S[j] = S[i];
-                    }
+    // This method will sort the given array using exchange sort 
+    public static int[] exchange(int n, int[] S) {
+        
+        // for i and j values
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                
+                // if the index j element is bigger switch
+                if (S[j] > S[j + 1]) {
+                    int temp = S[j];
+                    S[j] = S[j + 1];
+                    S[j + 1] = temp;
                 }
             }
-
-            return S;
         }
+        
+        return S;
+    }
 
-        public static void main(String[] args){
-            
-            // Testing Sample List
-            // Answer : 54
-            int[] S = {-1, 10, 7, 11, 5, 13, 8};
-            int[] Ans;
+    public static void main(String[] args) {
+        
+        // Testing Sample List
+        // Answer = 
+        int[] S = {-1, 10, 7, 11, 5, 13, 8};
+        int[] Ans;
 
-            Ans = exchange(S.length-1, S);
-            System.out.println(Ans);
-
-        }
+        Ans = exchange(S.length, S);
+        System.out.println(Arrays.toString(Ans)); 
+    }
 
 }
